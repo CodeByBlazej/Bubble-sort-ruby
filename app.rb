@@ -14,6 +14,8 @@ def bubble_sort (array)
       sorted_array.each do |sorted_number|
         if sorted_number > num
           sorted_array.unshift(num)
+        elsif sorted_number < num
+          sorted_array.push(num)
           break
         end
       end
