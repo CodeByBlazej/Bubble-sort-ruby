@@ -22,12 +22,31 @@ def bubble_sort (array)
   #   end
   # end
 
-  array.each_with_index do |num, i|
-    p num[i+1]
-      # p num[i]
+  #   if num > num[index]
+  #     sorted_array.push(num)
+  #     # break if sorted_array.one?
+  #   else
+  #     sorted_array.each do |sorted_number|
+  #       if sorted_number > num
+  #         sorted_array.unshift(num)
+  #       elsif sorted_number < num
+  #         sorted_array.push(num)
+  #         break
+  #       end
+  #     end
+  #   end
+  # end
+
+
+  array.each_cons(2) do |first, second| 
+    if first > second
+      first = second
+      second = first
+    elsif first < second
+      sorted_array.push(first)
+      sorted_array.push(second)
+    end
   end
-
-
 
   binding.pry
 
