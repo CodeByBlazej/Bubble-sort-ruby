@@ -36,17 +36,30 @@ def bubble_sort (array)
   #     end
   #   end
   # end
-
-
-  array.each_cons(2) do |first, second| 
-    if first > second
-      first = second
-      second = first
-    elsif first < second
-      sorted_array.push(first)
-      sorted_array.push(second)
+  
+  if sorted_array.none?
+    array.each {|num| sorted_array.push(num)}
+  else
+    sorted_array.each_cons(2) do |first, second|
+      if first > second
+        second = first
+      else
+        first = second
+      end
     end
   end
+
+
+  # array.each_cons(2) do |first, second| 
+  #   if sorted_array.none?
+  #     array.each {|num| sorted_array.push(num)}
+  #   elsif sorted_array.any?
+
+  #     sorted_array.push(first)
+  #   else
+  #     sorted_array.push(second)
+  #   end
+  # end
 
   binding.pry
 
