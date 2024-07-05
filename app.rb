@@ -7,6 +7,17 @@ def bubble_sort (array)
   sorted_array = []
 
   # array.each_with_index do |num, index|
+  #   if num[index - 1] > num[index]
+  #     p index
+  #     sorted_array.push(num)
+  #     next
+  #   else
+  #     sorted_array.push(index)
+  #     # next
+  #   end
+  # end
+
+  # array.each_with_index do |num, index|
   #   if sorted_array.none?
   #     sorted_array.push(num)
   #     # break if sorted_array.one?
@@ -37,29 +48,34 @@ def bubble_sort (array)
   #   end
   # end
   
-  if sorted_array.none?
-    array.each {|num| sorted_array.push(num)}
-  else
-    sorted_array.each_cons(2) do |first, second|
-      if first > second
-        second = first
-      else
-        first = second
-      end
-    end
-  end
-
-
-  # array.each_cons(2) do |first, second| 
-  #   if sorted_array.none?
-  #     array.each {|num| sorted_array.push(num)}
-  #   elsif sorted_array.any?
-
-  #     sorted_array.push(first)
-  #   else
-  #     sorted_array.push(second)
+  # if sorted_array.none?
+  #   array.each {|num| sorted_array.push(num)}
+  # else
+  #   sorted_array.each_cons(2) do |first, second|
+  #     if first > second
+  #       second = first
+  #     else
+  #       first = second
+  #     end
   #   end
   # end
+
+  # array.each {|num| sorted_array.push(num)}
+  
+  # sorted_array.each_cons(2) do |first, second| 
+  #   if first > second
+  #     first = second
+  #   end  
+  # end
+
+  array.each_cons(2) do |first, second|
+    if first > second
+      sorted_array.push(second)
+      sorted_array.push(first)
+    else
+      sorted_array.push(second)
+    end
+  end
 
   binding.pry
 
