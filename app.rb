@@ -77,15 +77,36 @@ def bubble_sort (array)
   #   #   sorted_array.push(second)
   #   end
   # end
+  min = sorted_array.min
+  max = sorted_array.max
 
-  sorted_array.each_with_index do |num, index|
-    if num[index] > num[index + 1]
-      sorted_array[index - 1], sorted_array[index] = sorted_array[index], sorted_array[index - 1]
+  
+  # sorted_array.each_with_index do |num, index|
+  #   swapped = false
+  #   next if num[index] < num[index + 1]
+  #     sorted_array[index], sorted_array[index + 1] = sorted_array[index + 1], sorted_array[index]
+  #       p sorted_array
+  #   # end
+  #   #   redo if sorted_array.first != min  
+  #   #   end
+  # end
+
+  loop do
+    swapped = false
+
+    (sorted_array.size - 1).times do |index|
+      if sorted_array[index] > sorted_array[index + 1]
+        sorted_array[index], sorted_array[index + 1] = sorted_array[index + 1], sorted_array[index]
+        swapped = true
+      end
+
     end
-    p sorted_array
-  end 
-
-  binding.pry
+    break unless swapped
+  end
+  p sorted_array
+    binding.pry
+    # if sorted_array.first != min
+    #   redo
 
 end
 
