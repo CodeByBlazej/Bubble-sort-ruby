@@ -60,7 +60,7 @@ def bubble_sort (array)
   #   end
   # end
 
-  # array.each {|num| sorted_array.push(num)}
+  array.each {|num| sorted_array.push(num)}
   
   # sorted_array.each_cons(2) do |first, second| 
   #   if first > second
@@ -68,14 +68,22 @@ def bubble_sort (array)
   #   end  
   # end
 
-  array.each_cons(2) do |first, second|
-    if first > second
-      sorted_array.push(second)
-      sorted_array.push(first)
-    else
-      sorted_array.push(second)
+
+  # sorted_array.each_cons(2) do |first, second|
+  #   if first > second
+  #     p sorted_array[0]
+  #     # sorted_array.insert(second, first)
+  #   # else
+  #   #   sorted_array.push(second)
+  #   end
+  # end
+
+  sorted_array.each_with_index do |num, index|
+    if num[index] > num[index + 1]
+      sorted_array[index - 1], sorted_array[index] = sorted_array[index], sorted_array[index - 1]
     end
-  end
+    p sorted_array
+  end 
 
   binding.pry
 
