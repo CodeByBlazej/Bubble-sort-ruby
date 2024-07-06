@@ -1,14 +1,10 @@
 require 'pry-byebug'
 
 def bubble_sort (array)
-  # check while/until loop odin loop page. while array = array 'minmax' check documentation
-  #
 
   sorted_array = []
 
-
   array.each {|num| sorted_array.push(num)}
-  
   
   loop do
     swapped = false
