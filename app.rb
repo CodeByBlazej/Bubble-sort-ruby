@@ -1,5 +1,3 @@
-require 'pry-byebug'
-
 def bubble_sort (array)
 
   sorted_array = []
@@ -20,8 +18,6 @@ def bubble_sort (array)
   end
 
   p sorted_array
-
-  binding.pry
 
 end
 
